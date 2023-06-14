@@ -9,10 +9,14 @@
         [disabled]="!allowNewServer"
         (click)="onCreateServer()">Add Server</button>
 
-<p>{{allowNewServer}}</p>
-<p [innerText]="allowNewServer"></p>
+<!-- <p>{{allowNewServer}}</p>
+<p [innerText]="allowNewServer"></p> -->
 
-<p>{{serverCreation}}</p>
+<p></p>
+<p *ngIf="created; else noServer">Server was created with a name: {{serverName}}</p>
+<ng-template #noServer>
+      <p>No server was created.</p>
+</ng-template>
 
 <!-- Practice -->
 <label for="user">Username</label>
@@ -24,6 +28,16 @@ placeholder="Enter your name">
         [disabled]="username === ''"
         (click)="onDeleteUsername()">Delete username</button>
 
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let item of servers"></app-server>
+
+<!-- Practice -->
+<button class="button btn-primary"
+        (click)="showSecret = !showSecret; onCounterIncrement()">Display details</button>
+<p *ngIf="showSecret">
+Secret Password is 456dg23B!5#2</p>
+
+<p *ngFor="let item of logTimeStamp; let i = index"
+[ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+[ngClass]="{fifth: i >= 5}">
+      {{item}}
+</p>
