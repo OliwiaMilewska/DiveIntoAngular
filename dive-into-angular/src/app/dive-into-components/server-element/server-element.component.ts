@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ServerElement } from '../../models/serverElement.model';
 
 @Component({
@@ -9,5 +9,5 @@ import { ServerElement } from '../../models/serverElement.model';
 export class ServerElementComponent {
   @Input('srvEl') element!: ServerElement;
 
-  constructor(){}
+  constructor() { }
 }

@@ -18,7 +18,6 @@ export class DiveIntoComponentsComponent {
   }
 
   onBlueprintAdded(serverData: any) {
-    console.log(serverData);
     this.serverElements.push({
       type: 'blueprint',
       name: serverData.serverName,

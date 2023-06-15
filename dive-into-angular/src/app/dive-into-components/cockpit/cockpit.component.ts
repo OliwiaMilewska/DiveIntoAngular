@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ServerElement } from '../../models/serverElement.model';
 
 @Component({
   selector: 'app-cockpit',
@@ -12,11 +11,21 @@ export class CockpitComponent {
   newServerName: string = '';
   newServerContent: string = '';
 
-  onAddServer() {
-    this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});    
+  // Using ngModel
+  // onAddServer() {
+  //   this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});    
+  // }
+
+  // onAddBlueprint() {
+  //   this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});  
+  // }
+
+  // Using Local References in a Template
+  onAddServer(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
+    this.serverCreated.emit({ serverName: serverNameInput.value, serverContent: serverContentInput.value });
   }
 
-  onAddBlueprint() {
-    this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});  
+  onAddBlueprint(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
+    this.blueprintCreated.emit({ serverName: serverNameInput.value, serverContent: serverContentInput.value });
   }
 }
