@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServerElement } from '../models/serverElement.model';
 
 @Component({
   selector: 'app-dive-into-components',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./dive-into-components.component.css']
 })
 export class DiveIntoComponentsComponent {
+  serverElements: ServerElement[] = [];
 
+  onServerAdded(serverData: any){
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
+
+  onBlueprintAdded(serverData: any) {
+    console.log(serverData);
+    this.serverElements.push({
+      type: 'blueprint',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
 }

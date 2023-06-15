@@ -10,6 +10,8 @@ import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { FormsModule } from '@angular/forms';
 import { DiveIntoComponentsComponent } from './dive-into-components/dive-into-components.component';
 import { BasicsComponent } from './basics/basics.component';
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BasicsComponent } from './basics/basics.component';
     WarningAlertComponent,
     SuccessAlertComponent,
     DiveIntoComponentsComponent,
-    BasicsComponent
+    BasicsComponent,
+    CockpitComponent,
+    ServerElementComponent
   ],
   imports: [
     BrowserModule,
