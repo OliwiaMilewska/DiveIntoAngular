@@ -34,7 +34,6 @@ export class ServersComponent {
   }
 
   onUpdateServerName(event: Event) {
-    //console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
   }
 
@@ -43,9 +42,9 @@ export class ServersComponent {
   }
 
   onCounterIncrement(): void {
-    if (this.showSecret === false){
+    if (this.showSecret === false) {
       this.counter++;
-      this.logTimeStamp.push(new Date()+'')
+      this.logTimeStamp.push(new Date() + '')
     }
   }
 }

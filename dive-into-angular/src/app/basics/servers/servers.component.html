@@ -1,13 +1,10 @@
 <label for="name">Server Name</label>
 <!-- <input id="name" type="text" class="form-control"
       (input)="onUpdateServerName($event)"> -->
-<input id="name" type="text" class="form-control"
-      [(ngModel)]="serverName">
+<input id="name" type="text" class="form-control" [(ngModel)]="serverName">
 <p>{{serverName}}</p>
 
-<button class="button btn-primary"
-        [disabled]="!allowNewServer"
-        (click)="onCreateServer()">Add Server</button>
+<button class="button btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 
 <!-- <p>{{allowNewServer}}</p>
 <p [innerText]="allowNewServer"></p> -->
@@ -20,24 +17,18 @@
 
 <!-- Practice -->
 <label for="user">Username</label>
-<input type="text" id="user" class="form-control"
-[(ngModel)]="username"
-placeholder="Enter your name">
+<input type="text" id="user" class="form-control" [(ngModel)]="username" placeholder="Enter your name">
 <p>{{username}}</p>
-<button class="button btn-primary"
-        [disabled]="username === ''"
-        (click)="onDeleteUsername()">Delete username</button>
+<button class="button btn-primary" [disabled]="username === ''" (click)="onDeleteUsername()">Delete username</button>
 
 <app-server *ngFor="let item of servers"></app-server>
 
 <!-- Practice -->
-<button class="button btn-primary"
-        (click)="showSecret = !showSecret; onCounterIncrement()">Display details</button>
+<button class="button btn-primary" (click)="showSecret = !showSecret; onCounterIncrement()">Display details</button>
 <p *ngIf="showSecret">
-Secret Password is 456dg23B!5#2</p>
+      Secret Password is 456dg23B!5#2</p>
 
-<p *ngFor="let item of logTimeStamp; let i = index"
-[ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
-[ngClass]="{fifth: i >= 5}">
+<p *ngFor="let item of logTimeStamp; let i = index" [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+      [ngClass]="{fifth: i >= 5}">
       {{item}}
 </p>
