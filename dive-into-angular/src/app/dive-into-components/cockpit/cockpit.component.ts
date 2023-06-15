@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ServerElement } from '../models/serverElement.model';
+import { ServerElement } from '../../models/serverElement.model';
 
 @Component({
   selector: 'app-cockpit',

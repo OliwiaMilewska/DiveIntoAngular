@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ServerElement } from '../models/serverElement.model';
+import { ServerElement } from '../../models/serverElement.model';
 
 @Component({
   selector: 'app-server-element',
