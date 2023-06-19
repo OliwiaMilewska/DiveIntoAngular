@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -8,24 +8,37 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CockpitComponent {
   @Output('srvCreated') serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
   @Output() blueprintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+
   newServerName: string = '';
   newServerContent: string = '';
 
-  // Using ngModel
-  // onAddServer() {
-  //   this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});    
-  // }
+  @ViewChild('serverContentInput') serverContentInput!: ElementRef;
+  @ViewChild('serverNameInput') serverNameInput!: ElementRef;
 
-  // onAddBlueprint() {
-  //   this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});  
-  // }
+  // Using ngModel
+  onAddServer1() {
+    this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});    
+  }
+
+  onAddBlueprint1() {
+    this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});  
+  }
 
   // Using Local References in a Template
-  onAddServer(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
+  onAddServerRef(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
     this.serverCreated.emit({ serverName: serverNameInput.value, serverContent: serverContentInput.value });
   }
 
-  onAddBlueprint(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
+  onAddBlueprintRef(serverNameInput: HTMLInputElement, serverContentInput: HTMLInputElement) {
     this.blueprintCreated.emit({ serverName: serverNameInput.value, serverContent: serverContentInput.value });
+  }
+
+  // Using ViewChild()
+  onAddServer() {
+    this.serverCreated.emit({ serverName: this.serverNameInput.nativeElement.value, serverContent: this.serverContentInput.nativeElement.value });
+  }
+
+  onAddBlueprint() {
+    this.blueprintCreated.emit({ serverName: this.serverNameInput.nativeElement.value, serverContent: this.serverContentInput.nativeElement.value });
   }
 }
