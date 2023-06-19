@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef, Input, ViewChild, } from '@angular/core';
 import { ServerElement } from '../../models/serverElement.model';
 
 @Component({
@@ -8,6 +8,9 @@ import { ServerElement } from '../../models/serverElement.model';
 })
 export class ServerElementComponent {
   @Input('srvEl') element!: ServerElement;
+  @ViewChild('heading') header!: ElementRef;
+  @ContentChild('contentParagraph') paragraph!: ElementRef;
 
   constructor() { }
+
 }
