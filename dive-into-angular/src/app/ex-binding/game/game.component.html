@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <app-game-control (counter)="onCounterEmitted($event)"></app-game-control>
+    </div>
+    <div class="row" *ngFor="let i of amountArray">
+        <div *ngIf="i %2 == 0; else odd">
+            <app-even [even]="i" style="color: green"></app-even>
+        </div>
+        <ng-template #odd>
+            <app-odd [odd]="i" style="color:orangered;"></app-odd>
+        </ng-template>
+    </div>
+</div>

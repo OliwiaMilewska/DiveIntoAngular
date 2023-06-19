@@ -13,6 +13,10 @@ import { BasicsComponent } from './basics/basics.component';
 import { CockpitComponent } from './dive-into-components/cockpit/cockpit.component';
 import { ServerElementComponent } from './dive-into-components/server-element/server-element.component';
 import { HomeComponent } from './home/home.component';
+import { GameControlComponent } from './ex-binding/game-control/game-control.component';
+import { OddComponent } from './ex-binding/odd/odd.component';
+import { EvenComponent } from './ex-binding/even/even.component';
+import { GameComponent } from './ex-binding/game/game.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { HomeComponent } from './home/home.component';
     BasicsComponent,
     CockpitComponent,
     ServerElementComponent,
-    HomeComponent
+    HomeComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
