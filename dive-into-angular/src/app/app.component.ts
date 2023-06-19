@@ -13,4 +13,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dive-into-angular';
+
+  isNavigationOpen: boolean = false;
+
+  toggleNavigation(): void {
+    this.isNavigationOpen = !this.isNavigationOpen;
+  }
 }
