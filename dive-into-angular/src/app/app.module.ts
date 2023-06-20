@@ -26,6 +26,8 @@ import { NewAccountComponent } from './services/new-account/new-account.componen
 import { ServicesComponent } from './services/services.component';
 import { AccountsService } from './shared/accounts.service';
 import { LoggingService } from './shared/logging.service';
+import { ActiveUsersComponent } from './services/active-users/active-users.component';
+import { InactiveUsersComponent } from './services/inactive-users/inactive-users.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { LoggingService } from './shared/logging.service';
     UnlessDirective,
     AccountComponent,
     NewAccountComponent,
-    ServicesComponent
+    ServicesComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,

@@ -6,4 +6,14 @@
             <app-account *ngFor="let acc of accounts;let i = index" [account]="acc" [id]="i"></app-account>
         </div>
     </div>
+
+    <h2 class="mt-3">Exercise with services from the course</h2>
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <app-active-users
+              [users]="activeUsers"></app-active-users>
+            <app-inactive-users
+              [users]="inactiveUsers"></app-inactive-users>
+          </div>
+    </div>
 </div>
