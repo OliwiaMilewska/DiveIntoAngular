@@ -21,6 +21,9 @@ import { BasicHighlightDirective } from './directives/basic-highlight.directive'
 import { DirectivePageComponent } from './directives/directive-page/directive-page.component';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { AccountComponent } from './services/account/account.component';
+import { NewAccountComponent } from './services/new-account/new-account.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { UnlessDirective } from './directives/unless.directive';
     BasicHighlightDirective,
     DirectivePageComponent,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    AccountComponent,
+    NewAccountComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,

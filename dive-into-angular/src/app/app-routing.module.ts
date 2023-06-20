@@ -5,6 +5,7 @@ import { BasicsComponent } from './basics/basics.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './ex-binding/game/game.component';
 import { DirectivePageComponent } from './directives/directive-page/directive-page.component';
+import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'diveintocomponents', component: DiveIntoComponentsComponent },
   { path: 'basics', component: BasicsComponent },
   { path: 'gameBinding', component: GameComponent },
-  { path: 'directives', component: DirectivePageComponent }
+  { path: 'directives', component: DirectivePageComponent },
+  { path: 'services', component: ServicesComponent }
 ];
 
 @NgModule({
