@@ -15,15 +15,15 @@ export class BetterHighlightDirective implements OnInit {
     this.renderer.setStyle(this.eleRef.nativeElement, 'background-color', this.defaultColor);
   }
 
-  @HostListener('mouseenter') mouseOver(eventData: Event) {
+  @HostListener('mouseenter') mouseOver(eventData: Event): void {
     this.renderer.setStyle(this.eleRef.nativeElement, 'background-color', this.secondColor);
   }
 
-  @HostListener('mouseleave') mouseLeave(eventData: Event) {
+  @HostListener('mouseleave') mouseLeave(eventData: Event): void {
     this.renderer.setStyle(this.eleRef.nativeElement, 'background-color', this.defaultColor);
   }
 
-  @HostListener('click') mouseclick(): void {
+  @HostListener('click') mouseClick(): void {
     this.backgroundColor = 'yellow';
   }
 }
