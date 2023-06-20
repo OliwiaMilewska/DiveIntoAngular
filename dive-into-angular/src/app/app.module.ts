@@ -24,6 +24,8 @@ import { UnlessDirective } from './directives/unless.directive';
 import { AccountComponent } from './services/account/account.component';
 import { NewAccountComponent } from './services/new-account/new-account.component';
 import { ServicesComponent } from './services/services.component';
+import { AccountsService } from './shared/accounts.service';
+import { LoggingService } from './shared/logging.service';
 
 @NgModule({
   declarations: [
