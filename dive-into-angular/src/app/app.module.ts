@@ -17,6 +17,10 @@ import { GameControlComponent } from './ex-binding/game-control/game-control.com
 import { OddComponent } from './ex-binding/odd/odd.component';
 import { EvenComponent } from './ex-binding/even/even.component';
 import { GameComponent } from './ex-binding/game/game.component';
+import { BasicHighlightDirective } from './directives/basic-highlight.directive';
+import { DirectivePageComponent } from './directives/directive-page/directive-page.component';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { GameComponent } from './ex-binding/game/game.component';
     GameControlComponent,
     OddComponent,
     EvenComponent,
-    GameComponent
+    GameComponent,
+    BasicHighlightDirective,
+    DirectivePageComponent,
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

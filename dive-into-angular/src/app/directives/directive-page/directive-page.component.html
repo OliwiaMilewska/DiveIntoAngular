@@ -1,0 +1,52 @@
+<div class="container">
+    <!-- NgStyle and ngClass -->
+    <button class="btn btn-primary m-2" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+    <br><br>
+    <div class="row">
+        <ul class="list-group">
+            <div *ngIf="onlyOdd">
+                <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}"
+                    [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+                    *ngFor="let odd of oddNumbers">
+                    {{ odd }}
+                </li>
+            </div>
+            <div *ngIf="!onlyOdd">
+                <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}"
+                    [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+                    *ngFor="let even of evenNumbers">
+                    {{ even }}
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div class="row m-2">
+        <p appBasicHighlight>Style me with custom directive.</p>
+    </div>
+    <div class="row m-2">
+        <p appBetterHighlight>Style me with better custom directive.</p>
+    </div>
+    <div class="row m-2">
+        <p appBetterHighlight [defaultColor]="'red'" [secondColor]="'orange'">Style me with better even more custom
+            directive.</p>
+    </div>
+
+    <!-- custom structural directive 'Unless' -->
+    <div class="row">
+        <ul class="list-group">
+            <div *appUnless="!onlyOdd">
+                <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}"
+                    [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+                    *ngFor="let odd of oddNumbers">
+                    {{ odd }}
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <!-- ngSwitch -->
+    <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+    </div>
+</div>
