@@ -24,10 +24,14 @@ import { UnlessDirective } from './directives/unless.directive';
 import { AccountComponent } from './services/account/account.component';
 import { NewAccountComponent } from './services/new-account/new-account.component';
 import { ServicesComponent } from './services/services.component';
-import { AccountsService } from './shared/accounts.service';
-import { LoggingService } from './shared/logging.service';
 import { ActiveUsersComponent } from './services/active-users/active-users.component';
 import { InactiveUsersComponent } from './services/inactive-users/inactive-users.component';
+import { UsersComponent } from './routing/users/users.component';
+import { EditServerRoutingComponent } from './routing/servers-routing/edit-server-routing/edit-server-routing.component';
+import { ServersRoutingComponent } from './routing/servers-routing/servers-routing.component';
+import { ServerRoutingComponent } from './routing/servers-routing/server-routing/server-routing.component';
+import { HomeRoutingComponent } from './routing/home-routing/home-routing.component';
+import { UserComponent } from './routing/users/user/user.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,13 @@ import { InactiveUsersComponent } from './services/inactive-users/inactive-users
     NewAccountComponent,
     ServicesComponent,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    UsersComponent,
+    EditServerRoutingComponent,
+    ServersRoutingComponent,
+    ServerRoutingComponent,
+    HomeRoutingComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
