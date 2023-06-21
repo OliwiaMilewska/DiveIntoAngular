@@ -1,51 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Server2Service } from './server2.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-servers-routing',
   templateUrl: './servers-routing.component.html',
   styleUrls: ['./servers-routing.component.css']
 })
-export class ServersRoutingComponent {
-  private servers = [
-    {
-      id: 1,
-      name: 'Productionserver',
-      status: 'online'
-    },
-    {
-      id: 2,
-      name: 'Testserver',
-      status: 'offline'
-    },
-    {
-      id: 3,
-      name: 'Devserver',
-      status: 'offline'
-    }
-  ];
+export class ServersRoutingComponent implements OnInit {
+  servers: { id: number, name: string, status: string }[] = [];
 
-  getServers() {
-    return this.servers;
+  constructor(private _serService: Server2Service, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.servers = this._serService.getServers();
   }
 
-  getServer(id: number) {
-    const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
-    return server;
-  }
-
-  updateServer(id: number, serverInfo: {name: string, status: string}) {
-    const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
-    if (server) {
-      server.name = serverInfo.name;
-      server.status = serverInfo.status;
-    }
+  onReload(): void {
+    // Another example of routing
+    this.router.navigate(['/serversrouting'], { relativeTo: this.route });
   }
 }

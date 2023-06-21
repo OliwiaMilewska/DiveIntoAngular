@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { HomeRoutingComponent } from './routing/home-routing/home-routing.component';
 import { UsersComponent } from './routing/users/users.component';
 import { ServersRoutingComponent } from './routing/servers-routing/servers-routing.component';
+import { UserComponent } from './routing/users/user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'homerouting', component: HomeRoutingComponent },
   { path: 'serversrouting', component: ServersRoutingComponent },
-  { path: 'usersrouting', component: UsersComponent }
+  { path: 'usersrouting', component: UsersComponent },
+  { path: 'userrouting/:id/:name', component: UserComponent },
 ];
 
 @NgModule({

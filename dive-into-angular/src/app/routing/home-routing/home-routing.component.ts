@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-routing',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomeRoutingComponent {
 
+  constructor(private router: Router){}
+
+  onLoadServers(): void {
+    this.router.navigate(['/serversrouting']);
+  }
 }
