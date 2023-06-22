@@ -12,7 +12,7 @@ export class ServerRoutingComponent implements OnInit {
 
   constructor(private _serversService: Server2Service, private _route: ActivatedRoute, private __router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // this._route.params.subscribe((param: Params) => this.server = this._serversService.getServer(parseInt(param['id'])));
     this._route.data.subscribe((data: Data) => this.server = data['server']);
   }

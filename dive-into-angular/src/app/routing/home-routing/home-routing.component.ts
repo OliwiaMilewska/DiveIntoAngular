@@ -15,11 +15,11 @@ export class HomeRoutingComponent {
     this.router.navigate(['/serversrouting', 1, 'edit'], { queryParams: { allowEdit: 1 }, fragment: 'loading' });
   }
 
-  onLogin():  void{
+  onLogin(): void {
     this._authService.login();
   }
 
-  onLogout():void{
+  onLogout(): void {
     this._authService.logout();
   }
 }

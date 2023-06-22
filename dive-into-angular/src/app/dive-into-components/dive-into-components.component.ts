@@ -9,7 +9,7 @@ import { ServerElement } from '../models/serverElement.model';
 export class DiveIntoComponentsComponent {
   serverElements: ServerElement[] = [];
 
-  onServerAdded(serverData: any){
+  onServerAdded(serverData: any): void {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -17,7 +17,7 @@ export class DiveIntoComponentsComponent {
     });
   }
 
-  onBlueprintAdded(serverData: any) {
+  onBlueprintAdded(serverData: any): void {
     this.serverElements.push({
       type: 'blueprint',
       name: serverData.serverName,

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class GameComponent {
   amountArray: number[] = [];
+  
   onCounterEmitted(event: any): void {
     this.amountArray.push(event);
   }

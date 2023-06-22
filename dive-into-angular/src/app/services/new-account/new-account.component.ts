@@ -10,8 +10,8 @@ import { LoggingService } from 'src/app/shared/logging.service';
 export class NewAccountComponent {
   constructor(private _logging: LoggingService, private _accServcie: AccountsService) { }
 
-  onCreateAccount(accountName: string, accountStatus: string) {
+  onCreateAccount(accountName: string, accountStatus: string): void {
     this._accServcie.addAccount(accountName, accountStatus);
-    this._logging.logStatusChange(accountStatus); 
+    this._logging.logStatusChange(accountStatus);
   }
 }
