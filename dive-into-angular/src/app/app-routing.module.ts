@@ -12,9 +12,10 @@ import { ServersRoutingComponent } from './routing/servers-routing/servers-routi
 import { UserComponent } from './routing/users/user/user.component';
 import { EditServerRoutingComponent } from './routing/servers-routing/edit-server-routing/edit-server-routing.component';
 import { ServerRoutingComponent } from './routing/servers-routing/server-routing/server-routing.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'diveintocomponents', component: DiveIntoComponentsComponent },
   { path: 'basics', component: BasicsComponent },
@@ -22,13 +23,19 @@ const routes: Routes = [
   { path: 'directives', component: DirectivePageComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'homerouting', component: HomeRoutingComponent },
-  { path: 'serversrouting', component: ServersRoutingComponent, children:[
-    { path: ':id', component: ServerRoutingComponent },
-    { path: ':id/edit', component: EditServerRoutingComponent },
-  ] },
-  { path: 'usersrouting', component: UsersComponent, children:[
-    { path: ':id/:name', component: UserComponent }
-  ] }
+  {
+    path: 'serversrouting', component: ServersRoutingComponent, children: [
+      { path: ':id', component: ServerRoutingComponent },
+      { path: ':id/edit', component: EditServerRoutingComponent },
+    ]
+  },
+  {
+    path: 'usersrouting', component: UsersComponent, children: [
+      { path: ':id/:name', component: UserComponent }
+    ]
+  },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({
