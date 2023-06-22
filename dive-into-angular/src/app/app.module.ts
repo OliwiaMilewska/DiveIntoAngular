@@ -33,6 +33,7 @@ import { ServerRoutingComponent } from './routing/servers-routing/server-routing
 import { HomeRoutingComponent } from './routing/home-routing/home-routing.component';
 import { UserComponent } from './routing/users/user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ServerRoutingComponent,
     HomeRoutingComponent,
     UserComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
