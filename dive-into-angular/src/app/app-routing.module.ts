@@ -13,6 +13,8 @@ import { UserComponent } from './routing/users/user/user.component';
 import { EditServerRoutingComponent } from './routing/servers-routing/edit-server-routing/edit-server-routing.component';
 import { ServerRoutingComponent } from './routing/servers-routing/server-routing/server-routing.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './routing/servers-routing/edit-server-routing/can-deactivate-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -24,9 +26,9 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'homerouting', component: HomeRoutingComponent },
   {
-    path: 'serversrouting', component: ServersRoutingComponent, children: [
+    path: 'serversrouting',/*canActivate:[AuthGuard]*/ canActivateChild: [AuthGuard], component: ServersRoutingComponent, children: [
       { path: ':id', component: ServerRoutingComponent },
-      { path: ':id/edit', component: EditServerRoutingComponent },
+      { path: ':id/edit', component: EditServerRoutingComponent, canDeactivate: [CanDeactivateGuard] },
     ]
   },
   {
