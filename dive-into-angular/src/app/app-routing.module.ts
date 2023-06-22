@@ -10,6 +10,8 @@ import { HomeRoutingComponent } from './routing/home-routing/home-routing.compon
 import { UsersComponent } from './routing/users/users.component';
 import { ServersRoutingComponent } from './routing/servers-routing/servers-routing.component';
 import { UserComponent } from './routing/users/user/user.component';
+import { EditServerRoutingComponent } from './routing/servers-routing/edit-server-routing/edit-server-routing.component';
+import { ServerRoutingComponent } from './routing/servers-routing/server-routing/server-routing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'homerouting', component: HomeRoutingComponent },
   { path: 'serversrouting', component: ServersRoutingComponent },
+  { path: 'serversrouting/:id', component: ServerRoutingComponent },
+  { path: 'serversrouting/:id/edit', component: EditServerRoutingComponent },
   { path: 'usersrouting', component: UsersComponent },
   { path: 'userrouting/:id/:name', component: UserComponent },
 ];

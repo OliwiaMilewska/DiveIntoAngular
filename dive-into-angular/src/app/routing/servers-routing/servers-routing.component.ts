@@ -17,7 +17,6 @@ export class ServersRoutingComponent implements OnInit {
   }
 
   onReload(): void {
-    // Another example of routing
     this.router.navigate(['/serversrouting'], { relativeTo: this.route });
   }
 }

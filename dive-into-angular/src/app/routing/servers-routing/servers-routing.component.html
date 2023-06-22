@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12 col-sm-4">
       <div class="list-group">
-        <a href="#" class="list-group-item" *ngFor="let server of servers">
+        <a [routerLink]="['/serversrouting',server.id]" [queryParams]="{allowEdit:'1'}" fragment="loading"
+          class="list-group-item" *ngFor="let server of servers">
           {{ server.name }}
         </a>
       </div>
@@ -11,7 +12,7 @@
       <button class="btn btn-info m-2" (click)="onReload()">Reload Page</button>
       <app-edit-server-routing></app-edit-server-routing>
       <hr class="m-2">
-      <app-server-routing></app-server-routing>
+      <!-- <app-server-routing></app-server-routing> -->
     </div>
   </div>
 </div>
