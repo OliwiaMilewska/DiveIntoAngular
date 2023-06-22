@@ -22,11 +22,13 @@ const routes: Routes = [
   { path: 'directives', component: DirectivePageComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'homerouting', component: HomeRoutingComponent },
-  { path: 'serversrouting', component: ServersRoutingComponent },
-  { path: 'serversrouting/:id', component: ServerRoutingComponent },
-  { path: 'serversrouting/:id/edit', component: EditServerRoutingComponent },
-  { path: 'usersrouting', component: UsersComponent },
-  { path: 'userrouting/:id/:name', component: UserComponent },
+  { path: 'serversrouting', component: ServersRoutingComponent, children:[
+    { path: ':id', component: ServerRoutingComponent },
+    { path: ':id/edit', component: EditServerRoutingComponent },
+  ] },
+  { path: 'usersrouting', component: UsersComponent, children:[
+    { path: ':id/:name', component: UserComponent }
+  ] }
 ];
 
 @NgModule({

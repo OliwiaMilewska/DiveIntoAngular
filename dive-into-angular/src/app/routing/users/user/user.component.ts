@@ -8,7 +8,7 @@ import { Subscribable, Subscription } from 'rxjs';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user!: { id: number, name: string };
+  user: { id: number, name: string } | undefined;
   paramsSubscription!: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
@@ -23,7 +23,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   onLoad() {
-    this.router.navigate(['/userrouting/10/Anna']);
+    this.router.navigate(['/usersrouting/10/Anna']);
   }
 
   ngOnDestroy(): void {

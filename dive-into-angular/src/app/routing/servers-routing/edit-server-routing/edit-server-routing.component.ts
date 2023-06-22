@@ -11,24 +11,26 @@ export class EditServerRoutingComponent {
   server: { id: number, name: string, status: string } | undefined;
   serverName = '';
   serverStatus = '';
-  allowEdit!: number;
+  allowEdit!: boolean;
   fragment!: string | null;
 
   constructor(private _serversService: Server2Service, private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.server = this._serversService.getServer(1);
+    this._route.params.subscribe((param: Params) => {
+      this.server = this._serversService.getServer(parseInt(param['id']));
+    });
     this.serverName = this.server!.name;
     this.serverStatus = this.server!.status;
 
     this._route.queryParams.subscribe((query: Params) => {
-      this.allowEdit = query['allowEdit']
-    });
+      this.allowEdit = query['allowEdit'] === '1' ? true : false
+    }); 
     this._route.fragment.subscribe((frag) => {
       this.fragment = frag;
     });
-    console.log(this.allowEdit);
-    console.log(this.fragment);
+    // console.log(this.allowEdit);
+    // console.log(this.fragment);
   }
 
   onUpdateServer() {
