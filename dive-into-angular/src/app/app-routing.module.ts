@@ -17,6 +17,8 @@ import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './routing/servers-routing/edit-server-routing/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ServerResolver } from './routing/servers-routing/server-routing/server-resolver.service';
+import { HomeObsComponent } from './observables/home-obs/home-obs.component';
+import { UserObsComponent } from './observables/user-obs/user-obs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -38,6 +40,8 @@ const routes: Routes = [
       { path: ':id/:name', component: UserComponent }
     ]
   },
+  { path: 'homeobs', component: HomeObsComponent },
+  { path: 'userobs/:id', component: UserObsComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'error-page', component: ErrorPageComponent, data: { message: "Error, page was not found!" } },
   { path: '**', redirectTo: '/error-page' },

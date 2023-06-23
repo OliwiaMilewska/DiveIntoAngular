@@ -34,6 +34,8 @@ import { HomeRoutingComponent } from './routing/home-routing/home-routing.compon
 import { UserComponent } from './routing/users/user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { HomeObsComponent } from './observables/home-obs/home-obs.component';
+import { UserObsComponent } from './observables/user-obs/user-obs.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HomeRoutingComponent,
     UserComponent,
     PageNotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    HomeObsComponent,
+    UserObsComponent
   ],
   imports: [
     BrowserModule,
