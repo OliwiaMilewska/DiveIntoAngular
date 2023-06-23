@@ -8,8 +8,8 @@ import { ShoppingService } from '../shopping-list/shopping.service';
 })
 export class RecipeService {
   private recipes: Recipe[] = [
-    new Recipe('Hamburger', 'Hamburger with great meat.', '../assets/images/hamburger.jpg', [new Ingredient('Meat', 1), new Ingredient('Bread', 2), new Ingredient('Letuce', 1)]),
-    new Recipe('Hamburger v2', 'Hamburger with great meat and more vegetables.', '../assets/images/hamburger.jpg', [new Ingredient('Meat', 1), new Ingredient('Bread', 2), new Ingredient('Letuce', 1), new Ingredient('Tomato', 1), new Ingredient('Onion', 1)])
+    new Recipe(1, 'Hamburger', 'Hamburger with great meat.', '../assets/images/hamburger.jpg', [new Ingredient('Meat', 1), new Ingredient('Bread', 2), new Ingredient('Letuce', 1)]),
+    new Recipe(2, 'Hamburger v2', 'Hamburger with great meat and more vegetables.', '../assets/images/hamburger.jpg', [new Ingredient('Meat', 1), new Ingredient('Bread', 2), new Ingredient('Letuce', 1), new Ingredient('Tomato', 1), new Ingredient('Onion', 1)])
   ];
   recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
@@ -17,6 +17,10 @@ export class RecipeService {
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number): Recipe {
+    return this.recipes.slice().find((r: Recipe) => r.id === id);
   }
 
   addIngredientsToShopList(ingredients: Ingredient[]) {
