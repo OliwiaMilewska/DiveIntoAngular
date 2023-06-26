@@ -19,6 +19,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { ServerResolver } from './routing/servers-routing/server-routing/server-resolver.service';
 import { HomeObsComponent } from './observables/home-obs/home-obs.component';
 import { UserObsComponent } from './observables/user-obs/user-obs.component';
+import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -42,6 +44,8 @@ const routes: Routes = [
   },
   { path: 'homeobs', component: HomeObsComponent },
   { path: 'userobs/:id', component: UserObsComponent },
+  { path: 'forms/template-driven', component: TemplateDrivenComponent },
+  { path: 'forms/reactive', component: ReactiveComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'error-page', component: ErrorPageComponent, data: { message: "Error, page was not found!" } },
   { path: '**', redirectTo: '/error-page' },

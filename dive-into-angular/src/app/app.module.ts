@@ -36,6 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeObsComponent } from './observables/home-obs/home-obs.component';
 import { UserObsComponent } from './observables/user-obs/user-obs.component';
+import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { UserObsComponent } from './observables/user-obs/user-obs.component';
     PageNotFoundComponent,
     ErrorPageComponent,
     HomeObsComponent,
-    UserObsComponent
+    UserObsComponent,
+    TemplateDrivenComponent,
+    ReactiveComponent
   ],
   imports: [
     BrowserModule,
