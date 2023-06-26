@@ -7,7 +7,7 @@ import { ServerComponent } from './basics/server/server.component';
 import { ServersComponent } from './basics/servers/servers.component';
 import { WarningAlertComponent } from './basics/warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './basics/success-alert/success-alert.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DiveIntoComponentsComponent } from './dive-into-components/dive-into-components.component';
 import { BasicsComponent } from './basics/basics.component';
 import { CockpitComponent } from './dive-into-components/cockpit/cockpit.component';
@@ -82,7 +82,8 @@ import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigm
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
