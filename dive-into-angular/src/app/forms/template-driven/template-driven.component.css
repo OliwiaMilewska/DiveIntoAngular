@@ -2,6 +2,6 @@ input.ng-invalid.ng-touched {
     border: solid 1px red;
 }
 
-p {
+.warn {
     color: blue;
 }
