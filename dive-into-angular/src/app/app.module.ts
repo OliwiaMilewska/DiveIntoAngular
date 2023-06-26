@@ -39,6 +39,7 @@ import { UserObsComponent } from './observables/user-obs/user-obs.component';
 import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigment-template-driven/assigment-template-driven.component';
+import { AssigmentReactiveComponent } from './forms/reactive/assigment-reactive/assigment-reactive.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigm
     UserObsComponent,
     TemplateDrivenComponent,
     ReactiveComponent,
-    AssigmentTemplateDrivenComponent
+    AssigmentTemplateDrivenComponent,
+    AssigmentReactiveComponent
   ],
   imports: [
     BrowserModule,
