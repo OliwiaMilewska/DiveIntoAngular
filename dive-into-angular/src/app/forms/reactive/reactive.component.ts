@@ -30,7 +30,10 @@ export class ReactiveComponent implements OnInit {
       gender: new FormControl('female'),
       hobbies: new FormArray([])
     });
-  }
+
+    // this.signUpForm.valueChanges.subscribe((value) => console.log(value));
+    // this.signUpForm.statusChanges.subscribe((status) => console.log(status));
+  } 
 
   onSubmit(): void {
     console.log(this.signUpForm);
@@ -42,7 +45,7 @@ export class ReactiveComponent implements OnInit {
     this.user.hobbies = this.signUpForm.value.hobbies;
     this.submitted = true;
 
-    this.signUpForm.reset();
+    this.signUpForm.reset({gender: 'female'}); // reset but 'gender' will be set to female
   }
 
   onAddHobby() {
@@ -57,7 +60,7 @@ export class ReactiveComponent implements OnInit {
   forbiddenNames(control: FormControl): { [s: string]: boolean } | null {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1)
       return { 'nameIsForbidden': true };
-    return { 'nameIsForbidden': false };
+    return null;
   }
 
   forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
@@ -70,6 +73,25 @@ export class ReactiveComponent implements OnInit {
           resolve(null)
         }
       }, 1500);
+    });
+  }
+
+  setDefaultValues(): void {
+    this.signUpForm.setValue({
+      userData: {
+        username: 'Teścikowy',
+        email: 'test@email.com'
+      },
+      gender: 'female',
+      hobbies: []
+    })
+  }
+
+  suggestUsername(): void {
+    this.signUpForm.patchValue({
+      userData: {
+        username: 'Rex'
+      }
     });
   }
 }

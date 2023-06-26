@@ -2,10 +2,12 @@
     <div class="row">
         <div class="col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
             <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                <button class="btn btn-primary" type="button" (click)="setDefaultValues()">Set default values</button>
                 <div formGroupName="userData">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" class="form-control" formControlName="username">
+                        <button class="btn btn-primary" type="button" (click)="suggestUsername()">Suggest Username</button>
                     </div>
                     <p class="warn"
                         *ngIf="!signUpForm.get('userData.username')?.valid && signUpForm.get('userData.username')?.touched">
