@@ -21,6 +21,7 @@ import { HomeObsComponent } from './observables/home-obs/home-obs.component';
 import { UserObsComponent } from './observables/user-obs/user-obs.component';
 import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
+import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigment-template-driven/assigment-template-driven.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'userobs/:id', component: UserObsComponent },
   { path: 'forms/template-driven', component: TemplateDrivenComponent },
   { path: 'forms/reactive', component: ReactiveComponent },
+  { path: 'forms/template-driven/assigment', component: AssigmentTemplateDrivenComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'error-page', component: ErrorPageComponent, data: { message: "Error, page was not found!" } },
   { path: '**', redirectTo: '/error-page' },
