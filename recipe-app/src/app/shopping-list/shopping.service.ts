@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 export class ShoppingService {
   ingredients: Ingredient[] = [];
   ingredientsChanged: Subject<Ingredient[]> = new Subject<Ingredient[]>();
+  startedEditing: Subject<number> = new Subject<number>();
 
   constructor() { }
 
@@ -18,6 +19,15 @@ export class ShoppingService {
 
   addIngredients(ing: Ingredient[]): void {
     this.ingredients.push(...ing);
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  getIngredient(index: number): Ingredient {
+    return this.ingredients[index];
+  }
+
+  deleteIngredient(index: number): void {
+    this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
