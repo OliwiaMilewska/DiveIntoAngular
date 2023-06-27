@@ -43,6 +43,8 @@ import { AssigmentReactiveComponent } from './forms/reactive/assigment-reactive/
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     AssigmentReactiveComponent,
     PipesComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    ReversePipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

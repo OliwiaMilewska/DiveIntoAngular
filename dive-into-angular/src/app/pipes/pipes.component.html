@@ -9,10 +9,10 @@
         <hr>
         <div class="col-12">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let server of servers | filter:filteredStatus:'status'"
+                <li class="list-group-item" *ngFor="let server of servers | sort:false | filter:filteredStatus:'status'"
                     [ngClass]="getStatusClasses(server)">
-                    <strong>{{ server.name | shorten: 15 }}</strong> | {{ server.instanceType | uppercase}} | {{
-                    server.started | date:'fullDate' | lowercase}}
+                    <strong>{{ server.name | shorten: 15 }}</strong> | {{ server.instanceType | uppercase | reverse}} |
+                    {{server.started | date:'fullDate' | lowercase}}
                     <span class="badge bg-info m-1">{{ server.status }}</span>
                 </li>
             </ul>
