@@ -20,7 +20,7 @@
                     Shopping List</a>
                 <a class="dropdown-item" style="cursor: pointer;" [routerLink]="['/recipes/edit',recipe.id]">Edit
                     Recipe</a>
-                <a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a>
+                <a class="dropdown-item" style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a>
             </div>
         </div>
     </div>
