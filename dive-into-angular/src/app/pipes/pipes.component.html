@@ -1,9 +1,16 @@
 <div class="container">
     <div class="row">
+        <label for="search">Search by status</label>
+        <input type="text" name="search" [(ngModel)]="filteredStatus">
+        <br>
+        <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+        <hr>
         <div class="col-12">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let server of servers" [ngClass]="getStatusClasses(server)">
-                    <strong>{{ server.name }}</strong> | {{ server.instanceType | uppercase}} | {{ server.started | date:'fullDate' | lowercase}}
+                <li class="list-group-item" *ngFor="let server of servers | filter:filteredStatus:'status'"
+                    [ngClass]="getStatusClasses(server)">
+                    <strong>{{ server.name | shorten: 15 }}</strong> | {{ server.instanceType | uppercase}} | {{
+                    server.started | date:'fullDate' | lowercase}}
                     <span class="badge bg-info m-1">{{ server.status }}</span>
                 </li>
             </ul>
