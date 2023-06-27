@@ -23,6 +23,7 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigment-template-driven/assigment-template-driven.component';
 import { AssigmentReactiveComponent } from './forms/reactive/assigment-reactive/assigment-reactive.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'forms/reactive', component: ReactiveComponent },
   { path: 'forms/template-driven/assigment', component: AssigmentTemplateDrivenComponent },
   { path: 'forms/reactive/assigment', component: AssigmentReactiveComponent },
+  { path: 'pipes', component: PipesComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: 'error-page', component: ErrorPageComponent, data: { message: "Error, page was not found!" } },
   { path: '**', redirectTo: '/error-page' },

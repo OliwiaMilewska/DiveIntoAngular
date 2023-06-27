@@ -40,6 +40,7 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { AssigmentTemplateDrivenComponent } from './forms/template-driven/assigment-template-driven/assigment-template-driven.component';
 import { AssigmentReactiveComponent } from './forms/reactive/assigment-reactive/assigment-reactive.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { AssigmentReactiveComponent } from './forms/reactive/assigment-reactive/
     TemplateDrivenComponent,
     ReactiveComponent,
     AssigmentTemplateDrivenComponent,
-    AssigmentReactiveComponent
+    AssigmentReactiveComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
