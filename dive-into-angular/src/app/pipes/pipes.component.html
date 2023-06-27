@@ -4,6 +4,8 @@
         <input type="text" name="search" [(ngModel)]="filteredStatus">
         <br>
         <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+        <br>
+        <h4>App Status: {{ appStatus | async}}</h4>
         <hr>
         <div class="col-12">
             <ul class="list-group">
