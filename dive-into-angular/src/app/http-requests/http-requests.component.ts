@@ -32,7 +32,7 @@ export class HttpRequestsComponent {
   }
 
   onClearPosts() {
-    // Send Http request
+    this._postService.deletePosts().subscribe(() => this.loadedPosts = []);
   }
 
 }

@@ -28,4 +28,8 @@ export class PostsService {
         })
       );
   }
+
+  deletePosts(): Observable<Object> {
+    return this._http.delete(this.url);
+  }
 }
