@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './basics/server/server.component';
 import { ServersComponent } from './basics/servers/servers.component';
@@ -45,6 +46,7 @@ import { ShortenPipe } from './pipes/shorten.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { HttpRequestsComponent } from './http-requests/http-requests.component';
 
 @NgModule({
   declarations: [
@@ -89,10 +91,12 @@ import { SortPipe } from './pipes/sort.pipe';
     ShortenPipe,
     FilterPipe,
     ReversePipe,
-    SortPipe
+    SortPipe,
+    HttpRequestsComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule

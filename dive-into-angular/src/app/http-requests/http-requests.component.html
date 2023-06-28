@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" required [(ngModel)]="postForm.value.title"
+                        name="title" />
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" required [(ngModel)]="postForm.value.content"
+                        name="content"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">
+                    Send Post
+                </button>
+            </form>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <button class="btn btn-primary" (click)="onFetchPosts()">
+                Fetch Posts
+            </button>
+            |
+            <button class="btn btn-danger" [disabled]="loadedPosts.length < 1" (click)="onClearPosts()">
+                Clear Posts
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <p>No posts available!</p>
+        </div>
+    </div>
+</div>
