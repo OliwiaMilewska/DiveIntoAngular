@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Post } from '../models/post.model';
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-http-requests',
@@ -8,34 +10,25 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./http-requests.component.css']
 })
 export class HttpRequestsComponent {
-  url: string = 'https://diveintoangular-default-rtdb.firebaseio.com/';
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
+  isFetching: boolean = false;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _postService: PostsService) { }
 
   ngOnInit() {
-    this.fetchPosts();
+    this.onFetchPosts();
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
-    this._http.post(this.url + 'posts.json', postData).subscribe();
+  onCreatePost(postData: Post) {
+    this._postService.createAndStorePosts(postData);
   }
 
   onFetchPosts() {
-    this.fetchPosts();
-  }
-
-  fetchPosts() {
-    this._http.get(this.url + 'posts.json')
-      .pipe(map((response: any) => {
-        let postArray = [];
-        for (let key in response) {
-          postArray.push({ ...response[key], id: key });
-        }
-        return postArray;
-      })
-      )
-      .subscribe(responseData => console.log(responseData));
+    this.isFetching = true;
+    this._postService.fetchPosts().subscribe((post: Post[]) => {
+      this.loadedPosts = post
+      this.isFetching = false;
+    });
   }
 
   onClearPosts() {
