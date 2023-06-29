@@ -1,35 +1,45 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Post } from '../models/post.model';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs-compat';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, Subject, Subscription, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostsService {
+export class PostsService implements OnDestroy {
   url: string = 'https://diveintoangular-default-rtdb.firebaseio.com/';
+  error: Subject<string> = new Subject<string>();
+  sub!: Subscription;
+
   constructor(private _http: HttpClient) { }
 
   createAndStorePosts(data: Post): void {
     let postData: Post = data;
-    this._http.post<Post>(this.url + 'posts.json', postData).subscribe();
+    this.sub = this._http.post<Post>(this.url + 'posts.json', postData).subscribe(() => { }, error => this.error.next(error.message));
   }
 
   fetchPosts(): Observable<Post[]> {
     return this._http.get<{ [key: string]: Post }>(this.url + 'posts.json')
-      .pipe(
-        map(post => {
-          let postArray: Post[] = [];
-          for (let key in post) {
-            postArray.push({ ...post[key], id: key });
-          }
-          return postArray;
+      .pipe(map(post => {
+        let postArray: Post[] = [];
+        for (let key in post) {
+          postArray.push({ ...post[key], id: key });
+        }
+        return postArray;
+      }),
+        catchError((errorRes: Error) => {
+          // Do something with error, send to db, to analitics etc.
+          return throwError(errorRes);
         })
       );
   }
 
   deletePosts(): Observable<Object> {
     return this._http.delete(this.url);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
