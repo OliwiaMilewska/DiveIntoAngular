@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Post } from '../models/post.model';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, Subject, Subscription, throwError } from 'rxjs';
 
 @Injectable({
@@ -16,7 +16,12 @@ export class PostsService implements OnDestroy {
 
   createAndStorePosts(data: Post): void {
     let postData: Post = data;
-    this.sub = this._http.post<Post>(this.url + 'posts.json', postData).subscribe(() => { }, error => this.error.next(error.message));
+    this.sub = this._http.post<Post>(this.url + 'posts.json', postData, {
+      observe: 'response', // default: body
+      responseType: 'json'
+    }).subscribe(res => {
+      console.log(res);
+    }, error => this.error.next(error.message));
   }
 
   fetchPosts(): Observable<Post[]> {
@@ -44,7 +49,19 @@ export class PostsService implements OnDestroy {
   }
 
   deletePosts(): Observable<Object> {
-    return this._http.delete(this.url);
+    return this._http.delete(this.url + 'posts.json', {
+      observe: 'events',
+      responseType: 'text'
+    }).pipe(tap(event => {
+      if (event.type === HttpEventType.Sent) {
+        // ...
+        console.log(event);
+      }
+      if (event.type === HttpEventType.Response) {
+        // ...
+        console.log(event.body);
+      }
+    }));
   }
 
   ngOnDestroy(): void {
