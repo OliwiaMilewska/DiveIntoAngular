@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Post } from '../models/post.model';
 import { catchError, map } from 'rxjs/operators';
@@ -20,7 +20,9 @@ export class PostsService implements OnDestroy {
   }
 
   fetchPosts(): Observable<Post[]> {
-    return this._http.get<{ [key: string]: Post }>(this.url + 'posts.json')
+    return this._http.get<{ [key: string]: Post }>(this.url + 'posts.json', {
+      headers: new HttpHeaders({ 'Custom-Header': 'Hello' })
+    })
       .pipe(map(post => {
         let postArray: Post[] = [];
         for (let key in post) {
