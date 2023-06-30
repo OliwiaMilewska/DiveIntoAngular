@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
 import { Post } from '../models/post.model';
 import { PostsService } from './posts.service';
-import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-http-requests',
