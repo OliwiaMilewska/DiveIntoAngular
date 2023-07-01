@@ -34,7 +34,7 @@ export class AuthComponent {
       authObs = this._authService.signUp(email, password);
     }
 
-    authObs.subscribe((res) => {
+    authObs.subscribe((res: AuthResponseData) => {
       this.isLoading = false;
       this._router.navigate(['/recipes']);
     },
