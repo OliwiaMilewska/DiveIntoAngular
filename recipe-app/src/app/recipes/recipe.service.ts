@@ -18,7 +18,6 @@ export class RecipeService {
   constructor(private _shopService: ShoppingService) { }
 
   getRecipes(): Recipe[] {
-    this.recipesChanged.next(this.recipes.slice());
     return this.recipes.slice();
   }
 

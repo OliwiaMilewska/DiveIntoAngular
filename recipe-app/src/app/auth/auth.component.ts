@@ -2,18 +2,19 @@ import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthResponseData, AuthService } from '../shared/services/auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent{
+export class AuthComponent {
   isLoginMode: boolean = true;
   isLoading: boolean = false;
   error: string = '';
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService, private _router: Router) { }
 
   onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
@@ -33,7 +34,10 @@ export class AuthComponent{
       authObs = this._authService.signUp(email, password);
     }
 
-    authObs.subscribe(() => this.isLoading = false,
+    authObs.subscribe((res) => {
+      this.isLoading = false;
+      this._router.navigate(['/recipes']);
+    },
       errorResponse => {
         this.error = errorResponse;
         this.isLoading = false;

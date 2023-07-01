@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { User } from '../models/user.model';
 
 export interface AuthResponseData {
   kind: string,
@@ -16,6 +17,9 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
+  user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+
+
   constructor(private _http: HttpClient) { }
 
   signUp(email: string, password: string): Observable<AuthResponseData> {
@@ -23,7 +27,7 @@ export class AuthService {
       email: email,
       password: password,
       returnSecureToken: true
-    }).pipe(catchError(this.handleError));
+    }).pipe(catchError(this.handleError), tap(resData => this.handleAuth(resData.email, resData.localId, resData.idToken, resData.expiresIn)));
   }
 
   logIn(email: string, password: string): Observable<AuthResponseData> {
@@ -31,9 +35,18 @@ export class AuthService {
       email: email,
       password: password,
       returnSecureToken: true
-    }).pipe(catchError(this.handleError));
+    }).pipe(catchError(this.handleError), tap(resData => this.handleAuth(resData.email, resData.localId, resData.idToken, resData.expiresIn)));
   }
 
+  logOut(): void {
+    this.user.next(null);
+  }
+
+  private handleAuth(email: string, localId: string, idToken: string, expiresIn: string) {
+    let expirationDate = new Date(new Date().getTime() + parseInt(expiresIn) * 1000);
+    let user = new User(email, localId, idToken, expirationDate);
+    this.user.next(user);
+  }
   private handleError(errorResponse: HttpErrorResponse) {
     let errorMessage = '';
 
@@ -51,7 +64,7 @@ export class AuthService {
       case 'USER_DISABLED':
         errorMessage = 'Account was disabled by administrator.';
         break;
-        case 'EMAIL_NOT_FOUND':
+      case 'EMAIL_NOT_FOUND':
         errorMessage = 'This email does not exsists.';
         break;
       default:
