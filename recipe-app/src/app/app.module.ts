@@ -18,7 +18,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/others/alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
+import { PlaceholderDirective } from './shared/others/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
