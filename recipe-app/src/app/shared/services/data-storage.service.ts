@@ -1,10 +1,9 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, exhaustMap, map, take, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { RecipeService } from 'src/app/recipes/recipe.service';
 import { Recipe } from '../models/recipe.model';
 import { AuthService } from './auth.service';
-import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
