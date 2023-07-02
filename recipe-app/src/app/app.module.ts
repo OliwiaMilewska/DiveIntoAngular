@@ -10,8 +10,8 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/others/alert/alert.component';
 import { PlaceholderDirective } from './shared/others/placeholder/placeholder.directive';
-import { RecipesModule } from './recipes.module';
-import { ShoppingModule } from './shopping.module';
+import { RecipesModule } from './modules/recipes.module';
+import { ShoppingModule } from './modules/shopping.module';
 
 @NgModule({
   declarations: [
