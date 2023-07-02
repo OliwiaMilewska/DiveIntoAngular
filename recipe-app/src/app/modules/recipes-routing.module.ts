@@ -9,7 +9,7 @@ import { NgModule } from "@angular/core";
 
 const routes: Routes = [
     {
-        path: 'recipes', component: RecipesComponent, canActivate: [AuthGuard], children: [
+        path: '', component: RecipesComponent, canActivate: [AuthGuard], children: [
             { path: '', component: RecipeStartComponent, resolve: [RecipesResolverService] },
             { path: 'new', component: RecipeEditComponent },
             { path: ':id', component: RecipesDetailComponent, resolve: [RecipesResolverService] },
@@ -19,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class RecipesRoutingModule { }
