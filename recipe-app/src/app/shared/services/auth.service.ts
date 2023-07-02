@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { Constants } from '../constants';
 
 export interface AuthResponseData {
   kind: string,
@@ -24,7 +25,7 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   signUp(email: string, password: string): Observable<AuthResponseData> {
-    return this._http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBXzMP9Ve3jWo68v3eR2npuytZWBz7qnNs', {
+    return this._http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + Constants.apiKey, {
       email: email,
       password: password,
       returnSecureToken: true
@@ -32,7 +33,7 @@ export class AuthService {
   }
 
   logIn(email: string, password: string): Observable<AuthResponseData> {
-    return this._http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBXzMP9Ve3jWo68v3eR2npuytZWBz7qnNs', {
+    return this._http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + Constants.apiKey, {
       email: email,
       password: password,
       returnSecureToken: true
