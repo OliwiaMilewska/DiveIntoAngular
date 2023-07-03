@@ -49,6 +49,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { HttpRequestsComponent } from './http-requests/http-requests.component';
 import { AuthInterceptorService } from './http-requests/auth-interceptor.service';
 import { LoggingInterceptorService } from './http-requests/logging-interceptor.service';
+import { SignalsComponent } from './signals/signals.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { LoggingInterceptorService } from './http-requests/logging-interceptor.s
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SignalsComponent // standalone component
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true }],
